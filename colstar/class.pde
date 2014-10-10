@@ -71,18 +71,18 @@ class Ball {
           
           hit=true;
         }else if(f0*f1<0) {
-          float len=dist(posX, posY, ball[i].posX, ball[i].posY);
-          float normal=len!=0?1/len:0;
-          float dist=30-len;
+          float dist=dist(posX, posY, ball[i].posX, ball[i].posY);
+          float normal=dist!=0?1/dist:0;
+          float len=30-dist;
 
-          dx*=normal;
-          dy*=normal;
+          float dx_n=dx*normal;
+          float dy_n=dy*normal;
 
-          dist/=2.0;
-          posX+=dx*dist;
-          posY+=dy*dist;
-          ball[i].posX-=dx*dist;
-          ball[i].posY-=dy*dist;
+          len/=2.0;
+          posX+=dx_n*len;
+          posY+=dy_n*len;
+          ball[i].posX-=dx_n*len;
+          ball[i].posY-=dy_n*len;
 
           hit=true;
         }
