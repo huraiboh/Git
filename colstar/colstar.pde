@@ -8,8 +8,7 @@ void setup() {
 }
 
 void draw() {
-  fill(0,100);
-  rect(0,0,width,height);
+  background(0);
   for (int i=0; i<ball.length; i++) {
     ball[i].move();
     ball[i].disp();
