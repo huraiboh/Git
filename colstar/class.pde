@@ -44,7 +44,7 @@ class Ball {
     col();
   }
   void col() {
-    for (int i=num; i>=0; i--) {
+    for (int i=num-1; i>=0; i--) {
       //f_2*f^2+f_1*f+f_0=0
       float dx=posX-ball[i].posX;
       float dsx=speedX-ball[i].speedX;
@@ -63,14 +63,14 @@ class Ball {
 
         boolean hit=false;
         if (0<=f0&&f0<1) {
-          
+
           posX+=speedX*f0;
           posY+=speedY*f0;
           ball[i].posX+=ball[i].speedX*f0;
           ball[i].posY+=ball[i].speedY*f0;
-          
+
           hit=true;
-        }else if(f0*f1<0) {
+        } else if (f0*f1<0) {
           float dist=dist(posX, posY, ball[i].posX, ball[i].posY);
           float normal=dist!=0?1/dist:0;
           float len=30-dist;
@@ -117,6 +117,7 @@ class Ball {
 
   void disp() {
     fill(#FF0000);
+
     noStroke();
     ellipse( posX, posY, 30, 30 );
   }
